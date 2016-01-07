@@ -5,23 +5,28 @@
   <title>MoviesList</title>
 </head>
 <body>
+  <h1>MoviesList</h1>
+
   <div id="app">
     <form action="#">
-      <input type="text"></input>
+      <input type="text" id="name" placeholder="Name"></input>
 
-      <textarea id="" name="" cols="30" rows="10"></textarea>
+      <textarea id="synopsis" name="synopsis" cols="30" rows="10" placeholder="Synopsis"></textarea>
 
-      <select id="" name="">
+      <select id="genre" name="genre" placeholder="Genre">
         <option value="">Action</option>
         <option value="">Fantastique</option>
       </select>
 
-      <input type="text"></input>
+      <input type="text" id="image" placeholder="Image"></input>
 
-      <textarea id="" name="" cols="30" rows="10"></textarea>
+      <textarea id="actor-list" name="actor-list" cols="30" rows="10" placeholder="Actor list"></textarea>
 
-      <input type="submit">
+      <input class="submit" type="submit">
     </form>
+
+    <ul id="movies-list">
+    </ul>
   </div>
 
 </body>

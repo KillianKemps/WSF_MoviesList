@@ -7,40 +7,36 @@ var App = Backbone.View.extend({
   // Hash events
   // Pour binder les évènements jQuery
   events: {
-    'click .increase': 'increaseCounter',
-    'click .decrease': 'decreaseCounter'
+    'click .submit': 'submitFilm',
   },
 
   // On incrémente le compteur
-  increaseCounter: function(event) {
+  submitFilm: function(event) {
     // On kill notre event
     event.preventDefault();
+    var movie = {
+      'name': this.$el.find('#name').val(),
+      'synopsis': this.$el.find('#synopsis').val(),
+      'genre': this.$el.find('#genre').val(),
+      'image': this.$el.find('#image').val(),
+      'actor-list': this.$el.find('#actor-list').val()
+    }
 
-    this.countClick++;
-
-    this.render();
-  },
-
-  // On décrémente le compteur
-  decreaseCounter: function(event) {
-    // On kill notre event
-    event.preventDefault();
-
-    this.countClick--;
-
+    this.movies.push(movie);
     this.render();
   },
 
   initialize: function() {
-    this.countClick = 0;
+    this.movies = [{'name': 'John'}];
 
-    this.$nbClick = this.$el.find('.nb-click');
+    this.$moviesList = this.$el.find('#movies-list');
 
     this.render();
   },
 
   render: function() {
-    this.$nbClick.html(this.countClick);
+    console.log(JSON.stringify(this.movies));
+    this.$moviesList.html(JSON.stringify(this.movies));
   }
 
 });
