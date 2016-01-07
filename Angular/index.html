@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoviesList</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>MoviesList</h1>
+
+  <div id="app">
+    <form action="#">
+      <input type="text" id="name-input" placeholder="Name"></input>
+
+      <textarea id="synopsis" name="synopsis-input" cols="30" rows="10" placeholder="Synopsis"></textarea>
+
+      <select id="genre-input" name="genre" placeholder="Genre">
+        <option value="">Action</option>
+        <option value="">Fantastique</option>
+      </select>
+
+      <input type="text" id="image-input" placeholder="Image"></input>
+
+      <textarea id="actor-list-input" name="actor-list" cols="30" rows="10" placeholder="Actor list"></textarea>
+
+      <input class="submit" type="submit">
+    </form>
+
+    <ul id="movies-list">
+    </ul>
+  </div>
+
+</body>
+
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="backbone.js"></script>
+</html>
