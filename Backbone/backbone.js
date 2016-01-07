@@ -14,12 +14,13 @@ var App = Backbone.View.extend({
   submitFilm: function(event) {
     // On kill notre event
     event.preventDefault();
+
     var movie = {
-      'name': this.$el.find('#name').val(),
-      'synopsis': this.$el.find('#synopsis').val(),
-      'genre': this.$el.find('#genre').val(),
-      'image': this.$el.find('#image').val(),
-      'actor-list': this.$el.find('#actor-list').val()
+      'name': this.$el.find('#name-input').val(),
+      'synopsis': this.$el.find('#synopsis-input').val(),
+      'genre': this.$el.find('#genre-input').val(),
+      'image': this.$el.find('#image-input').val(),
+      'actorList': this.$el.find('#actor-list-input').val()
     }
 
     this.movies.push(movie);
@@ -27,7 +28,12 @@ var App = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.movies = [{'name': 'John'}];
+    this.movies = [{
+      'name': 'Titanic',
+      'synopsis': 'He didn\'t see the iceberg',
+      'genre': 'Romantic',
+      'image': 'http://fr.web.img4.acsta.net//medias/nmedia/18/36/27/14/20051394.jpg',
+      'actorList': 'Leonardo DiCaprio, Kate Winslet'}];
 
     this.$moviesList = this.$el.find('#movies-list');
 
@@ -35,8 +41,15 @@ var App = Backbone.View.extend({
   },
 
   render: function() {
-    console.log(JSON.stringify(this.movies));
-    this.$moviesList.html(JSON.stringify(this.movies));
+    this.$moviesList.empty();
+
+    for (var i = 0; i < this.movies.length; i++) {
+      this.$moviesList.append('<li><h2 class="title">' + this.movies[i].name + '</h2>' +
+                              '<p class="synopsis">' + this.movies[i].synopsis + '</p>' +
+                              '<p class="genre">' + this.movies[i].genre + '</p>' +
+                              '<img class="image" src="' + this.movies[i].image + '" width="100px"/>' +
+                              '<p class="actor-list>' + this.movies[i].actorList + '</p></li>');
+    }
   }
 
 });
