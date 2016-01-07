@@ -1,14 +1,18 @@
 angular.module('App', [])
-  .controller('AppController', function() {
+  .controller('AppController', ['$scope', function($scope) {
     var scope = this;
 
-    scope.countClick = 0;
+    $scope.movies = [{
+      'title': 'Titanic',
+      'synopsis': 'He didn\'t see the iceberg',
+      'genre': 'Romantic',
+      'image': 'http://fr.web.img4.acsta.net//medias/nmedia/18/36/27/14/20051394.jpg',
+      'actorList': 'Leonardo DiCaprio, Kate Winslet'}
+    ];
 
-    scope.increaseCounter = function() {
-      scope.countClick += 1;
+    scope.submitMovie = function($event) {
+      console.log('submit!');
+      $event.preventDefault();
     };
 
-    scope.decreaseCounter = function() {
-      scope.countClick -= 1;
-    };
-  });
+  }]);
